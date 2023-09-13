@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generated Resume</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div
+      class="w-full max-w-xl p-6 bg-opacity-50 bg-white backdrop-blur-lg rounded-lg shadow-lg"
+    >
+      <h1 class="text-2xl font-semibold mb-4">Generated Resume</h1>
+
+      <!-- Contact Information -->
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Contact Information</h2>
+        <ul class="list-disc ml-6">
+          <li>Email: <span id="email"></span></li>
+          <li>LinkedIn: <span id="linkedin"></span></li>
+          <li>Phone: <span id="phone"></span></li>
+        </ul>
+      </div>
+
+      <!-- Name and Professional Summary -->
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Name</h2>
+        <p class="text-gray-700" id="name"></p>
+      </div>
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Professional Summary</h2>
+        <p class="text-gray-700" id="professional_summary"></p>
+      </div>
+
+      <!-- Education -->
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Education</h2>
+        <ul id="education" class="list-disc ml-6">
+          <!-- Education items will be added here -->
+        </ul>
+      </div>
+
+      <!-- Experience -->
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Experience</h2>
+        <ul id="experience" class="list-disc ml-6">
+          <!-- Experience items will be added here -->
+        </ul>
+      </div>
+
+      <!-- Projects and Skills -->
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Projects</h2>
+        <ul id="projects" class="list-disc ml-6">
+          <!-- Project items will be added here -->
+        </ul>
+      </div>
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Skills</h2>
+        <ul id="skills" class="list-disc ml-6">
+          <!-- Skills items will be added here -->
+        </ul>
+      </div>
+
+      <!-- Note -->
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Note</h2>
+        <p class="text-gray-700" id="note"></p>
+      </div>
+
+      <!-- Finish Reason -->
+      <div class="mb-4">
+        <h2 class="text-xl font-semibold mb-2">Finish Reason</h2>
+        <p class="text-gray-700" id="finish_reason"></p>
+      </div>
+    </div>
+
+    <script>
+      const dd = {
+        Education: [
+          {
+            Degree: "Bachelor of Technology",
+            School: "University of XYZ",
+            Year: "2019",
+          },
+        ],
+        Experience: [
+          {
+            Company: "ABC Company",
+            Date: "2019-2021",
+            Location: "San Francisco, CA",
+            Responsibilities: [
+              "Developed and maintained scalable and responsive web applications using React.js and Redux.js",
+              "Collaborated with product management and UX designers to implement UI features and improve customer experience",
+              "Worked closely with other developers to ensure best practices and efficient solutions",
+              "Performed code reviews and participated in agile development processes",
+            ],
+            Title: "Frontend Engineer",
+          },
+          {
+            Company: "XYZ Company",
+            Date: "Summer 2018",
+            Location: "Seattle, WA",
+            Responsibilities: [
+              "Assisted in developing and testing software applications",
+              "Participated in team meetings and code reviews",
+              "Learned and applied programming concepts and best practices",
+            ],
+            Title: "Software Engineer Intern",
+          },
+        ],
+        Name: "Arun",
+        Projects: [
+          "Developed a responsive e-commerce website using React.js and Redux.js",
+          "Implemented a data visualization dashboard using D3.js",
+          "Created a RESTful API with Node.js and Express",
+        ],
+        Skills: [
+          "JavaScript",
+          "TypeScript",
+          "React.js",
+          "Redux.js",
+          "Webpack",
+          "Jest",
+          "AWS",
+          "Docker",
+          "Git",
+          "MySQL",
+        ],
+        finish_reason: "stop",
+      };
+      const data = {
+        Contact: {
+          Email: "",
+          LinkedIn: "",
+          Phone: "",
+        },
+        Education: [
+          {
+            Degree: "",
+            School: "",
+            Year: "",
+          },
+        ],
+        Experience: [
+          {
+            Company: "",
+            Date: "",
+            Location: "",
+            Responsibilities: [""],
+            Title: "",
+          },
+        ],
+        Name: "Olawale Peter",
+        Note: "",
+        ProfessionalSummary:
+          "Results-driven front-end developer with a passion for creating visually stunning and user-friendly websites and web applications. Proficient in Javascript, HTML, CSS, and React, with experience in using design tools such as Photoshop, Figma, and Adobe Xd. Strong ability to work effectively in a team environment and stay current with the latest technology and industry trends.",
+        Projects: [],
+        Skills: [],
+        finish_reason: "stop",
+      };
+
+      // Function to populate the resume data
+      function populateResume() {
+        document.getElementById("email").textContent = data.Contact.Email;
+        document.getElementById("linkedin").textContent = data.Contact.LinkedIn;
+        document.getElementById("phone").textContent = data.Contact.Phone;
+        document.getElementById("name").textContent = data.Name;
+        document.getElementById("professional_summary").textContent =
+          data.ProfessionalSummary;
+        document.getElementById("note").textContent = data.Note;
+        document.getElementById("finish_reason").textContent =
+          data.finish_reason;
+
+        // Populate Education
+        const educationList = document.getElementById("education");
+        educationList.innerHTML = "";
+        data.Education.forEach((edu) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${edu.Degree}, ${edu.School}, ${edu.Year}`;
+          educationList.appendChild(listItem);
+        });
+
+        // Populate Experience
+        const experienceList = document.getElementById("experience");
+        experienceList.innerHTML = "";
+        data.Experience.forEach((exp) => {
+          const listItem = document.createElement("li");
+          listItem.innerHTML = `
+                    <h3 class="text-lg font-semibold">${exp.Title}</h3>
+                    <p>Company: ${exp.Company}</p>
+                    <p>Date: ${exp.Date}</p>
+                    <p>Location: ${exp.Location}</p>
+                    <h4 class="text-md font-semibold">Responsibilities:</h4>
+                    <ul class="list-disc ml-6">
+                        ${exp.Responsibilities.map(
+                          (resp) => `<li>${resp}</li>`
+                        ).join("")}
+                    </ul>`;
+          experienceList.appendChild(listItem);
+        });
+
+        // Populate Projects
+        const projectsList = document.getElementById("projects");
+        projectsList.innerHTML = "";
+        data.Projects.forEach((project) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = project;
+          projectsList.appendChild(listItem);
+        });
+
+        // Populate Skills
+        const skillsList = document.getElementById("skills");
+        skillsList.innerHTML = "";
+        data.Skills.forEach((skill) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = skill;
+          skillsList.appendChild(listItem);
+        });
+      }
+
+      // Call the function to populate the resume on page load
+      populateResume();
+    </script>
+  </body>
+</html>

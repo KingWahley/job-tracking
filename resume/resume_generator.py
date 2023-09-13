@@ -8,7 +8,8 @@ import tiktoken
 load_dotenv()
 
 encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+# openai.api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = "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"
 
 with open("resume/test.txt", 'r') as f:
     system_prompt = f.read()
